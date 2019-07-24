@@ -1,0 +1,161 @@
+library(shiny)
+library(shinydashboard)
+library(shinyjs)
+library(tidyverse)
+library(pdftools)
+library(magick)
+
+now_hms <- function() {
+  gsub("/","",format(Sys.time(), "%D_%H_%M_%S"))
+}
+
+# magick::image_read('http://ilgconference.com/2018/wp-content/uploads/2017/01/Jackson_Lewis.png') %>%
+#   image_trim() %>%
+#   image_write(., 'logojl.png')
+
+# ui <- shinyUI(
+#   fluidPage(
+#     fluidPage(
+#       titlePanel(img(src='https://www.fawl.org/assets/LOGOS/jackson%20lewis%20no%20tag%20color%20png.png', height=45)),
+#       titlePanel("Dashboards & Applications"),
+#       # sidebarLayout(
+#         # sidebarPanel(
+#         #   fileInput('file1', 'Choose PDF File',
+#         #             accept=c('pdf', 'pdf','jpeg',
+#         #                      'png', 'jpg',
+#         #                      'pdf')
+#         #   ),
+#         #   tags$hr(),
+#         #   tags$head(tags$style(
+#         #     type="text/css",
+#         #     "#viewimage img {max-width: 100%; width: 100%; height: auto}"
+#         #   )),
+#         #   # tags$iframe(style="height:600px; width:100%"),
+#         #   # imageOutput('viewimage'),
+#         #   numericInput("firstpage", 
+#         #                "First page number wanted:", 
+#         #                value = 1),
+#         #   numericInput("lastpage", 
+#         #                "Final page number wanted:", 
+#         #                value = 1),
+#         #   downloadButton('downloadData', 'Download PDF Subset'),
+#         #   # downloadButton('downloadData', 'Download')
+#         #   hr(),
+#         #   tags$small("Suggestions? Contact app creator"), tags$small(a(href='samantha.rhoads@jacksonlewis.com', 'Samantha Rhoads')), 
+#         #   br(),
+#         #   tags$small(HTML(paste(tags$span(style="color:grey", "Special thanks to Katrina Avila for the app idea!"))))),
+#         mainPanel(
+#           # htmlOutput('pathtext'),
+#           "\n",
+#           br(),
+#           "File preview..."
+#           # uiOutput("pdfview")
+#           # htmlOutput('pdfviewer'),
+#           # imageOutput('viewpdf')#,
+#           # imageOutput('viewimage')#,
+#           # tableOutput('contents'),
+#           # dataTableOutput('texttable')
+#         )
+#       )
+#     )
+#   )
+# )
+
+ui <- pageWithSidebar(
+  
+  # App title ----
+  headerPanel(img(src='https://www.fawl.org/assets/LOGOS/jackson%20lewis%20no%20tag%20color%20png.png', height=45)),
+  
+  # Sidebar panel for inputs ----
+  sidebarPanel(width=0),
+  
+  # Main panel for displaying outputs ----
+  mainPanel(
+    tags$small("Suggestions? Contact app creator"), tags$small(a(href='samantha.rhoads@jacksonlewis.com', 'Samantha Rhoads'))
+  )
+)
+
+server <- shinyServer(function(input, output) {
+  addClass(selector = "body", class = "sidebar-collapse")
+  # observe({
+  #   req(input$file1)
+  #   #   # test_file <- readBin(input$file1$datapath, what="character")
+  #   #   test_file <- readBin(con=input$file1$datapath,what = 'raw',n=input$file1$size)
+  #   #   writeBin(test_file, "www/myreport.pdf")
+  #   plzwrk <- pdf_subset(input$file1$datapath, pages = -10000000, output='fullinputpdf.pdf')
+  #   pdf_subset(input$file1$datapath, output='www/fullinputpdf.pdf')
+  # })
+  
+#   getData <- reactive({
+#     inFile <- input$file1
+#     path <- inFile$datapath
+#     what <- pdftools::pdf_subset(path, pages = input$firstpage:input$lastpage, output = "subset.pdf")
+#     return(what)
+#   })
+#   
+#   getImgs <- reactive({
+#     inFile <- input$file1
+#     path <- inFile$datapath
+#     if (is.null(input$file1)) return(NULL)
+#     magick::image_read_pdf(path, density = 72) %>% image_join() %>% image_animate(fps=2) %>%
+#       image_write(tempfile(fileext='jpg'), format = 'jpg')
+#   })
+#   
+#   output$viewpdf <- renderImage({
+#     req(input$file1)
+#     plzwrk <- pdf_subset(input$file1$datapath, pages = -10000000, output='fullinputpdf.pdf')
+#     # pdf_subset(input$file1$datapath, output='www/fullinputpdf.pdf')
+#     # if(!exists('input')) input <- list(); input$file1$datapath <- "fullinputpdf.pdf"
+#     pdfz <- magick::image_read_pdf('fullinputpdf.pdf', density = 72)
+#     tmpfile <- pdfz %>% 
+#       # image_resize(., '100x100') %>% 
+#     {
+#       x <- .
+#       for(i in 1:length(x)) x[i] <- image_annotate(x[i], paste0("p. ", i), location = geometry_point(10, 10), size = 24)
+#       x
+#     } %>%
+#       image_append(., stack=T) %>%
+#       # image_apply(., function(i) image_annotate(i, ))
+#       image_write(tempfile(fileext='jpg'), format = 'jpg')
+#     tryCatch(file.remove('fullinputpdf.pdf'), error = function(e) NULL)
+#     list(src = tmpfile, contentType = "image/jpeg")
+#     
+#   })
+#   
+#   
+#   output$pathtext <- renderText({
+#     # req(input$file1)
+#     if(!is.null(input$file1$datapath)) return(paste0("<b>Input file: </b>", code(basename(input$file1$name)))) else return(NULL)
+#     # paste0(as.character(unlist(input$file1$datapath)), collapse="; ")
+#   })
+#   
+#   getFilename <- reactive({
+#     if(!is.null(input$file1$datapath)) return(tools::file_path_sans_ext(basename(input$file1$name))) else return(NULL)
+#   })
+#   
+#   output$downloadData <- downloadHandler(
+#     filename = function() {paste0(getFilename(), "_pp", input$firstpage, "-", input$lastpage, "_", now_hms(), ".pdf")},
+#     content = function(file) {pdftools::pdf_subset(input$file1$datapath, pages = input$firstpage:input$lastpage, output = file)}
+#   )
+})
+
+# ui <- shinyUI(dashboardPage(
+#   dashboardHeader(),
+#   dashboardSidebar(),
+#   dashboardBody(
+#     useShinyjs()
+#   )
+# ))
+# 
+# server <- shinyServer(function(input, output, session) {
+#   addClass(selector = "body", class = "sidebar-collapse")
+# })
+
+
+shinyApp(ui = ui, server = server)
+
+
+# 
+# inputfilenamenoext <- basename(inFile$datapath)
+# inputfilenamenopathnoext <- tools::file_path_sans_ext(inputfilenamenoext)
+# 

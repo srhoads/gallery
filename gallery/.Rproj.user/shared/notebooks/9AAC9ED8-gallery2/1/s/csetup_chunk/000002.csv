@@ -1,0 +1,43 @@
+"0","library(magick)"
+"2","Linking to ImageMagick 6.9.9.39
+Enabled features: cairo, fontconfig, freetype, lcms, pango, rsvg, webp
+Disabled features: fftw, ghostscript, x11
+"
+"0","# image_read('https://www.fawl.org/assets/LOGOS/jackson%20lewis%20no%20tag%20color%20png.png') %>%"
+"0","#   image_scale(., '75') %>%"
+"0","#   image_write(., ""logos/jl45px.png"")"
+"0","library(ggplot2)"
+"2","package ‘ggplot2’ was built under R version 3.5.2"
+"0","library(plotly)"
+"2","
+Attaching package: ‘plotly’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    filter
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    layout
+
+"
+"0","library(plyr)"
+"2","
+Attaching package: ‘plyr’
+
+"
+"2","The following objects are masked from ‘package:plotly’:
+
+    arrange, mutate, rename, summarise
+
+"
+"0","library(shiny)"
+"2","package ‘shiny’ was built under R version 3.5.2"
+"0","library(flexdashboard)"

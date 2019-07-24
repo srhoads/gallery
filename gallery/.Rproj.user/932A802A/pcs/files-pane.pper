@@ -1,0 +1,13 @@
+{
+    "path" : "~/GitHub/portfolio/gallery/gallery",
+    "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 4
+        },
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

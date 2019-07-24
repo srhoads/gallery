@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559454047540.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1763657680",
+    "id" : "933662A7",
+    "lastKnownWriteTime" : 1559580983,
+    "last_content_update" : 1559580983110,
+    "path" : "~/jl/shinyapps/app.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "43,134",
+        "scrollLine" : "0",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

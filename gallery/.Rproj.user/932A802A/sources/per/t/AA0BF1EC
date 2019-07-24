@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559581014487.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1768518232",
+    "id" : "AA0BF1EC",
+    "lastKnownWriteTime" : 1563389952,
+    "last_content_update" : 1563389952175,
+    "path" : "~/GitHub/portfolio/gallery/gallery/gallery.Rmd",
+    "project_path" : "gallery.Rmd",
+    "properties" : {
+        "cursorPosition" : "6,22",
+        "last_setup_crc32" : "",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

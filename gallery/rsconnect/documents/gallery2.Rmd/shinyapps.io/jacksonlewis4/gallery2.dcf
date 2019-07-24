@@ -1,0 +1,12 @@
+name: gallery2
+title: gallery2
+username:
+account: jacksonlewis4
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 963533
+bundleId: 2131453
+url: https://jacksonlewis4.shinyapps.io/gallery2/
+when: 1559711213.42062
+asMultiple: FALSE
+asStatic: FALSE

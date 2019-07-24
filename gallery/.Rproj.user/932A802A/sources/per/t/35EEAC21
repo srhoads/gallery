@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559596712819.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4247051495",
+    "id" : "35EEAC21",
+    "lastKnownWriteTime" : 1559596784,
+    "last_content_update" : 1559596784893,
+    "path" : "~/GitHub/portfolio/gallery/gallery/appclicktemplate.R",
+    "project_path" : "appclicktemplate.R",
+    "properties" : {
+        "cursorPosition" : "90,4",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

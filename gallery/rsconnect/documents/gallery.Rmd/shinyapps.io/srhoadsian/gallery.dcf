@@ -1,0 +1,12 @@
+name: gallery
+title: gallery
+username:
+account: srhoadsian
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 967605
+bundleId: 2241772
+url: https://srhoadsian.shinyapps.io/gallery/
+when: 1563389999.95322
+asMultiple: TRUE
+asStatic: FALSE
